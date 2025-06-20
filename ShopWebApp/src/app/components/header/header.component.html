@@ -1,36 +1,59 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm px-3 py-2">
+<nav class="navbar navbar-expand-md fixed-top bg-white shadow-sm px-3 py-2">
   <div class="container-fluid">
-
-    <!-- Logo -->
-    <a class="navbar-brand text-danger fw-bold fs-4 d-flex align-items-center" routerLink="/">
-      <i class="pi pi-bolt text-danger me-2 fs-5"></i>Maa Tara Enterprises
+    <!-- Logo & Brand -->
+    <a
+      class="navbar-brand text-danger fw-bold fs-4 d-flex align-items-center"
+      routerLink="/"
+    >
+      <i class="pi pi-bolt text-danger me-2 fs-5"></i>
+      Maa Tara <span class="text-danger ms-1">Enterprises</span>
     </a>
 
     <!-- Toggler Button -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-      aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <button
+      class="navbar-toggler border-0"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#navbarContent"
+      aria-controls="navbarContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="text-danger fs-3">&#9776;</span>
+      <!-- Unicode hamburger icon -->
     </button>
 
-    <!-- Collapsible Content -->
-    <div class="collapse navbar-collapse" id="navbarContent">
-      <div class="w-100 d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-md-end gap-3">
+    <!-- Offcanvas Menu -->
+    <div
+      class="offcanvas offcanvas-end bg-light text-dark"
+      tabindex="-1"
+      id="navbarContent"
+      aria-labelledby="navbarContentLabel"
+    >
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title fw-bold" id="navbarContentLabel">Menu</h5>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
 
-        <!-- Menu Items -->
-        <ul class="navbar-nav flex-row flex-md-row mb-2 mb-md-0">
+      <div class="offcanvas-body">
+        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
           <li class="nav-item" *ngFor="let item of menuItems">
-            <a class="nav-link text-dark fw-medium" [routerLink]="item.routerLink">
+            <a
+              class="nav-link fw-medium"
+              [routerLink]="item.routerLink"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: item.routerLink === '/' }"
+            >
               {{ item.label }}
             </a>
           </li>
         </ul>
-        <div class="d-flex gap-2">
-          <button pButton type="button" icon="pi pi-shopping-cart" class="p-button-rounded p-button-text" aria-label="Cart"></button>
-          <button pButton type="button" icon="pi pi-user" class="p-button-rounded p-button-text" aria-label="Account"></button>
-        </div>
-
       </div>
     </div>
-
   </div>
 </nav>
