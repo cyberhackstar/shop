@@ -1,0 +1,60 @@
+<app-header></app-header>
+
+<!-- Search and Category Filter -->
+
+
+<!-- Product Section -->
+<section class="product_section layout_padding bg-light">
+  <div class="container pb-5">
+    <div class="heading_container heading_center mb-5 pt-5">
+      <h2 class="text-danger text-center">Our <span>Electrical Products</span></h2>
+    </div>
+    <div class="container my-4">
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <input type="text" class="form-control" placeholder="Search products..." [(ngModel)]="searchQuery">
+    </div>
+    <div class="col-md-6">
+      <select class="form-select" [(ngModel)]="selectedCategory">
+        <option value="All">All Categories</option>
+        <option *ngFor="let cat of categories.slice(1)" [value]="cat.name">{{ cat.name }}</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+    <div class="row justify-content-center g-4">
+  <div class="col-12 col-sm-6 col-lg-4 col-xl-3" *ngFor="let product of getFilteredProducts()">
+    <div class="card bg-white border-0 shadow-sm h-100 product-card">
+      <div class="img-box text-center" style="height: 200px; background-color: #f8f9fa;">
+        <img [src]="product.image" [alt]="product.name" class="card-img-top" style="object-fit: contain; max-height: 100%;" />
+      </div>
+      <div class="card-body d-flex flex-column justify-content-between">
+        <div>
+          <div class="text-center mb-2">
+            <h5 class="text-dark fw-bold">{{ product.name }}</h5>
+            <h6 class="text-danger fw-bold">₹{{ product.price }}</h6>
+          </div>
+          <hr />
+        </div>
+        <div class="mt-auto px-1">
+          <div class="d-flex gap-2 justify-content-center">
+            <!-- [routerLink]="['/product', product.id]"  -->
+            <a class="btn btn-outline-success w-50">
+              <small>VIEW</small>
+            </a>
+            <button type="button" class="btn btn-outline-danger w-50">
+              <small>BUY</small>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</section>
+
+<app-footer></app-footer>

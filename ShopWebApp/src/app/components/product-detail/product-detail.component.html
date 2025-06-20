@@ -1,0 +1,75 @@
+<app-header></app-header>
+
+<div class="container my-5">
+  <div class="row align-items-center">
+    <!-- Product Image -->
+    <div class="col-md-6 mb-4 mb-md-0">
+      <p-card styleClass="shadow-sm">
+        <img
+          [src]="product.image"
+          alt="{{ product.name }}"
+          class="img-fluid rounded"
+          style="max-height: 400px; object-fit: contain;"
+        />
+      </p-card>
+    </div>
+
+    <!-- Product Details -->
+    <div class="col-md-6">
+      <p-card styleClass="shadow-sm">
+        <div class="card-body">
+          <h2 class="text-primary">{{ product.name }}</h2>
+          <h4 class="text-success fw-bold">₹{{ product.price }}</h4>
+          <p class="text-muted">{{ product.description }}</p>
+
+          <div class="mb-3">
+            <p-rating
+              [(ngModel)]="product.rating"
+              readonly="true"
+              stars="5"
+              cancel="false"
+              styleClass="text-warning"
+            ></p-rating>
+          </div>
+
+          <!-- Quantity Selector -->
+          <div class="d-flex align-items-center mb-3">
+            <label class="me-2 fw-bold">Quantity:</label>
+            <p-inputNumber
+              [(ngModel)]="quantity"
+              [min]="1"
+              [max]="10"
+              [showButtons]="true"
+              buttonLayout="horizontal"
+              incrementButtonIcon="pi pi-plus"
+              decrementButtonIcon="pi pi-minus"
+              inputStyleClass="form-control"
+              styleClass="p-inputnumber-sm"
+            ></p-inputNumber>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="d-flex gap-3">
+            <button
+              pButton
+              type="button"
+              label="Buy Now"
+              icon="pi pi-credit-card"
+              class="p-button-rounded p-button-success"
+              (click)="buyNow(product, quantity)"
+            ></button>
+            <button
+              pButton
+              type="button"
+              label="Wishlist"
+              icon="pi pi-heart"
+              class="p-button-rounded p-button-outlined p-button-secondary"
+            ></button>
+          </div>
+        </div>
+      </p-card>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

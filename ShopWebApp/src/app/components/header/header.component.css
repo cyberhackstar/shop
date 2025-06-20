@@ -1,0 +1,28 @@
+:host ::ng-deep .custom-menubar {
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  border: none;
+}
+
+:host ::ng-deep .custom-menubar .p-menuitem-link {
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  transition: background-color 0.3s ease;
+}
+
+:host ::ng-deep .custom-menubar .p-menuitem-link:hover {
+  background-color: #f8f9fa;
+  border-radius: 0.375rem;
+}
+
+.nav-link {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #0d6efd;
+  text-decoration: underline;
+}

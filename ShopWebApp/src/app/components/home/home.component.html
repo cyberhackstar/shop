@@ -1,0 +1,96 @@
+<app-header></app-header>
+
+
+<!-- Hero Section -->
+<section class="hero-section position-relative bg-light py-5" style="background-image: url('assets/images/back5.jpg');">
+  <!-- Overlay -->
+  <div class="position-absolute top-0 start-0 w-100 h-100" style="background: rgba(0, 0, 0, 0.4); z-index: 1;"></div>
+
+  <div class="container position-relative" style="z-index: 2;">
+    <div class="row align-items-center">
+      <!-- Left Column -->
+      <div class="col-12 col-lg-6 mb-4 mb-lg-0 text-white">
+        <h2 class="fw-bold mb-3 animate-slide-up">Original and Quality</h2>
+        <h1 class="display-4 fw-bold mb-3 animate-fade-in">Electrical Product</h1>
+        <p class="mb-4 animate-slide-up">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+        </p>
+        <a class="btn btn-danger btn-lg animate-zoom-in text-light fw-semibold" routerLink="/shop">
+          <i class="fas fa-arrow-right me-2"></i> Shop Now
+        </a>
+      </div>
+
+      <!-- Right Column -->
+      <div class="col-12 col-lg-6 text-center">
+  <img 
+    src="assets/images/hero.jpg" 
+    alt="Electrical Product" 
+    class="img-fluid animate-zoom-in hero-3d-img" 
+    style="max-height: 400px;">
+</div>
+
+    </div>
+  </div>
+</section>
+
+<app-service-quality></app-service-quality>
+
+
+<!-- Featured Categories -->
+<!-- <section class="container my-5">
+  <h2 class="text-center fw-bold mb-4 animate-fade-in">Shop by Category</h2>
+  <div class="row g-4">
+    <div class="col-12 col-sm-6 col-lg-4" *ngFor="let category of categories">
+      <div class="card border-0 shadow-sm h-100 text-center animate-slide-up">
+        <img [src]="category.image" class="card-img-top" alt="{{ category.name }}" style="object-fit: cover; height: 200px;">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold">{{ category.name }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<!-- Featured-Carousal-->
+<section class=" bg-white" style="background-image: url('assets/images/back5.jpg'); background-size: cover; background-position: center;">
+    <div class="py-5 position-relative w-100 h-100" style="background: rgba(0, 0, 0, 0.2); z-index: 1;">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="badge bg-danger text-light mb-2 animate-fade-in" style="font-size: 30px;">Featured</span>
+      <h2 class="display-5 fw-bold text-light animate-slide-up">Our Top Products</h2>
+      <p class="text-light animate-fade-in">Explore our most popular and highly rated items.</p>
+    </div>
+
+    <p-carousel 
+      [value]="featuredProducts" 
+      [numVisible]="3" 
+      [numScroll]="1" 
+      [responsiveOptions]="responsiveOptions" 
+      [circular]="true" 
+      [autoplayInterval]="5000" 
+      [showIndicators]="true" 
+      [showNavigators]="true" 
+      styleClass="product-carousel">
+
+      <ng-template pTemplate="item" let-product>
+        <div class="border rounded bg-light text-dark m-2 p-4 shadow-sm product-card animate-zoom-in d-flex flex-column justify-content-between" style="height: 100%;">
+          <div class="image-wrapper mb-3 text-center" style="height: 200px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+            <img [src]="product.image" [alt]="product.name" style="height: 100%; width: auto; object-fit: cover;" class="img-fluid rounded" />
+          </div>
+          <div class="text-center mb-2 fw-semibold fs-5">{{ product.name }}</div>
+          <div class="fs-5 fw-bold text-danger text-center mb-3">₹{{ product.price }}</div>
+          <div class="text-center mt-auto">
+            <a [routerLink]="['/product', product.id]" class="btn btn-outline-danger btn-sm">View Details</a>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+  </div>
+</section>
+
+
+
+<!-- <app-service-quality></app-service-quality> -->
+<app-footer></app-footer>
