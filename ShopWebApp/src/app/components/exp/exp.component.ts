@@ -27,6 +27,7 @@ interface Product {
 export class ExpComponent {
   activeTab = 'tab-1';
 
+
   categories = [
     { id: 'tab-1', name: 'All Products' },
     { id: 'tab-2', name: 'Fans' },

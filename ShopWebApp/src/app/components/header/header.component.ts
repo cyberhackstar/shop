@@ -12,8 +12,7 @@ import { ButtonModule } from 'primeng/button';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-
-userRole:string= 'ROLE_USER';
+  userRole: string = 'ROLE_USER';
 
   menuItems = [
     { label: 'Home', icon: 'pi pi-home', routerLink: '/' },
@@ -23,7 +22,18 @@ userRole:string= 'ROLE_USER';
     // { label: 'FAQ', icon: 'pi pi-question-circle', routerLink: '/faq' },
   ];
 
-  constructor(private router:Router){}
+  constructor(private router: Router) {}
+
+  ngAfterViewInit() {
+    this.router.events.subscribe(() => {
+      const offcanvas = document.querySelector('.offcanvas') as HTMLElement;
+      if (offcanvas && offcanvas.classList.contains('show')) {
+        // @ts-ignore
+        const bsOffcanvas = (window as any).bootstrap?.Offcanvas?.getInstance(offcanvas);
+        bsOffcanvas?.hide();
+      }
+    });
+  }
 
   navigateTo(path: string): void {
     this.router.navigate([path]);

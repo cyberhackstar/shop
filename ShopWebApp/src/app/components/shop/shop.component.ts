@@ -12,6 +12,7 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent {
+
   products = [
     {
       id: 1,
